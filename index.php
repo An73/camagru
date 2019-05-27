@@ -1,6 +1,7 @@
 <?php
 
 use application\Router;
+use application\Request;
 
 session_start();
 spl_autoload_register(function($class) {
@@ -10,4 +11,8 @@ spl_autoload_register(function($class) {
     }
 });
 
+$request = new Request();
 $router = new Router();
+$router->parse($request);
+
+echo $request->test();
