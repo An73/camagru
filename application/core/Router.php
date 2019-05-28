@@ -1,6 +1,6 @@
 <?php
 
-namespace application;
+namespace application\core;
 
 class Router {
 
@@ -8,15 +8,18 @@ class Router {
     private $params;
 
     function __construct(){
-        $this->routes = require_once('config/routes.php');
+        $this->routes = require_once('application/config/routes.php');
     }
 
     function parse(Request $request) {
         $url = trim($request->getUrl(), '/');
         if ($this->match($url)) {
             $request->setController(ucfirst($this->params['controller']).'Controller');
+            $request->setModel(ucfirst($this->params['controller']).'Model');
             $request->setAction($this->params['action'].'Action');
-
+        }
+        else {
+            //View::errorCode(404);
         }
     }
 
