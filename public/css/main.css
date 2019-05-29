@@ -59,10 +59,120 @@ header {
 }
 
 .photo-place {
-    background: yellow;
+    display: flex;
+    flex-wrap: wrap;
+	align-content: flex-start;
+    justify-content: space-around;
     width: 1000px;
-    height: 100px;
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.photo {
+    width: 300px;
+    height: 300px;
+    background: burlywood;
+    margin: 1%;
+}
+
+#modal-signup {
+    display: block;
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+    background-color: rgba(23, 63, 63, 0.6);
+    -webkit-transition: 0.5s;
+}
+
+.modal-signup-content {
+    display: block;
+    width: 500px;
+    background: #5CCCCC;
+    margin-top: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 8px solid rgb(44, 209, 105);
+    border-radius: 20px;
+}
+
+.header-signup-modal {
+    width: 100%;
+    height: 80px;
+    background: rgb(44, 209, 105);
+    color: rgb(54, 54, 54);
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 400%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.form-signup-modal {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.input-signup-modal {
+    height: 35px;
+    font-family: Helvetica, sans-serif;
+    font-size: 160%;
+    padding-left: 20px; 
+    padding-right: 20px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    border: 3px solid rgb(44, 209, 105);
+    background: rgb(153, 230, 230);
+    text-align: center;
+    color: rgb(54, 54, 54);
+}
+
+.input-signup-modal::placeholder {
+    text-align: center;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+}
+
+.input-signup-modal:hover {
+    border: 3px solid rgb(185, 255, 211);
+}
+
+.input-signup-modal:focus {
+    outline: none;
+    background: rgb(195, 238, 255);
+    border: 3px solid rgb(185, 255, 211);
+}
+.input-signup-modal:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.submit-signup-modal {
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 150%;
+    color: rgb(129, 253, 174);
+    padding: 5px;
+    border-radius: 20px;
+    background: rgb(44, 209, 105);
+    border-bottom: 3px solid rgb(144, 250, 183);
+    border-right: 2px solid rgb(144, 250, 183);
+    border-left: 2px solid rgb(144, 250, 183);
+    border-top: none;
+    margin-bottom: 40px;
+}
+
+.submit-signup-modal:hover {
+    cursor: pointer;
+    color: rgb(80, 80, 80);
+    background: rgb(52, 245, 123);
+}
+
+.submit-signup-modal:focus {
+    outline: none;
+    border-bottom: 3px solid #5CCCCC;
+    border-right: 2px solid #5CCCCC;
+    border-left: 2px solid #5CCCCC;
 }
