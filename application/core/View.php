@@ -1,5 +1,7 @@
 <?php
 
+namespace application\core;
+
 class View {
 
     function generate($contentView, $templateView, $data = null) {
@@ -7,6 +9,6 @@ class View {
             extract($data);
         }
 
-        require 'application/views/'.$templateView;
+        require 'application/views/template/'.$templateView.'.php';
     }
 }

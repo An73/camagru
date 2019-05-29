@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+}
+
+header {
+    background: #5CCCCC;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-bottom: 3px solid rgb(211, 255, 255);
+}
+
+@font-face {
+    font-family: 'MidnightDrive';
+    src: url('../fonts/MidnightDrive.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MotionPicture';
+    src: url('../fonts/MotionPicture.ttf') format('truetype');
+}
+
+.header-logo {
+    font-family: 'MidnightDrive', Helvetica, sans-serif;
+    font-size: 800%;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(53, 53, 53);
+}
+
+.header-sign {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.header-user {
+    width: 250px;
+}
+
+.header-button {
+    width: 170px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 150%;
+    color: rgb(185, 255, 211);
+    padding: 5px;
+    border-radius: 20px;
+    background: #5CCCCC;
+    border: 2px solid rgb(144, 250, 183);
+}
+
+.header-button:hover{
+    cursor: pointer;
+    color: rgb(129, 253, 174);
+    border: 2px solid rgb(118, 255, 168);
+}
+
+.photo-place {
+    background: yellow;
+    width: 1000px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
+}

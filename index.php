@@ -18,8 +18,9 @@ $router = new Router();
 $router->parse($request);
 if ($request->checkParams()) {
     $path = 'application\controllers\\'.$request->getController();
+    $action = $request->getAction();
     $controller = new $path($request);
-    $controller->$request->getAction();
+    $controller->$action();
 }
 else
     echo "NO 404";
