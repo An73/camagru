@@ -3,11 +3,11 @@
 return [
     '' => [
         'controller' => 'main',
-        'action' => 'index',
+        'action' => 'index'
     ],
 
-    'account/login' => [
+    'account/signup' => [
         'controller' => 'account',
-        'action' => 'login',
+        'action' => 'signup'
     ]
 ];

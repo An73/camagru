@@ -7,5 +7,6 @@
 <body>
     <?php require 'application/views/'.$contentView.'.php'; ?>
 </body>
+<script src='public/js/function.js'></script>
 <script src= <?php echo 'public/js/'.$js.'.js';?> ></script>
 </html>
