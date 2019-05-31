@@ -1,5 +1,7 @@
 <?php
 
+namespace application\config;
+use PDO;
 
 class DB {
     protected static $instance = null;

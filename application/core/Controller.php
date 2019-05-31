@@ -12,6 +12,7 @@ abstract class Controller {
         $this->request = $request;
         $this->model = $this->loadModel($request->getModel());
         $this->view = new View();
+        require_once('application/config/DB.php');
     }
 
     protected function loadModel($model) {

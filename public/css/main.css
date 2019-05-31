@@ -102,6 +102,32 @@ header {
     -webkit-transition: 0.5s;
 }
 
+#modal-confirm-email {
+    display: none;
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+    background-color: rgba(23, 63, 63, 0.6);
+    -webkit-transition: 0.5s;
+}
+
+.message-confirm {
+    display: block;
+    margin-top: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    padding: 30px;
+    background: #5CCCCC;
+    border: 4px solid rgb(44, 209, 105);
+    border-radius: 70px;
+    font-family: Helvetica, sans-serif;
+    font-size: 130%;
+    text-align: center;
+    color: rgb(44, 44, 44);
+}
+
 .modal-signup-content {
     display: block;
     width: 500px;
@@ -191,4 +217,20 @@ header {
     border-bottom: 3px solid #5CCCCC;
     border-right: 2px solid #5CCCCC;
     border-left: 2px solid #5CCCCC;
+}
+
+.error-signup-modal {
+    display: block;
+    width: 380px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 110%;
+    color: rgb(255, 50, 50);
+    background: rgb(44, 209, 105);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

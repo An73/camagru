@@ -22,7 +22,7 @@ function ajaxTemplate(method, url, data, callFunction) {
     request.onreadystatechange = function() {
         if (request.readyState === 4) {
             if (request.status === 200) {
-                console.log("!! " + request.responseText);
+                callFunction(request.responseText);
             }
         }
     };
