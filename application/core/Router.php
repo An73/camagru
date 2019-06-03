@@ -13,6 +13,7 @@ class Router {
 
     function parse(Request $request) {
         $url = trim($request->getUrl(), '/');
+        $url = explode("?", $url)[0];
         if ($this->match($url)) {
             $request->setController(ucfirst($this->params['controller']).'Controller');
             $request->setModel(ucfirst($this->params['controller']).'Model');
