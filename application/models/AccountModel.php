@@ -43,6 +43,32 @@ class AccountModel extends Model {
         return True;
     }
 
+    public function activationProfile($data) {
+        if (!DB::run("SELECT * FROM users WHERE Activation=?", [$data])->fetch()) {
+            $this->error = 'Activation Key Incorrect';
+            return False;
+        }
+        DB::run("UPDATE users SET status=1 WHERE Activation=?", [$data]);
+        return True;
+    }
+
+    public function getUserByName($username) {
+        return DB::run("SELECT * FROM users WHERE Username=?", [$username])->fetch();
+    }
+
+    public function validateSignin($username, $passwd) {
+        $fetch = DB::run("SELECT * FROM users WHERE Username=?", [$username])->fetch();
+        if (!$fetch || !password_verify($passwd, $fetch['Passwd'])) {
+            $this->error = 'Username or Password is incorrect';
+            return False;
+        }
+        else if (!DB::run("SELECT * FROM users WHERE Username=? AND Status=1", [$username])->fetch()) {
+            $this->error = 'Not confirmed email';
+            return False;
+        }
+        return True;
+    }
+
     public function getError() {
         return $this->error;
     }

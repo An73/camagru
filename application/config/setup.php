@@ -9,9 +9,9 @@
                     (ID INT(10) AUTO_INCREMENT PRIMARY KEY, 
                     Username VARCHAR(30) NOT NULL,
                     Email VARCHAR(320) NOT NULL,
-                    Passwd VARCHAR(130) NOT NULL,
+                    Passwd VARCHAR(255) NOT NULL,
                     Avatar VARCHAR(30) NOT NULL,
-                    Activation VARCHAR(130) NOT NULL,
+                    Activation VARCHAR(255) NOT NULL,
                     Status BOOLEAN DEFAULT 0)");
     
     DB::query("CREATE TABLE IF NOT EXISTS posts
