@@ -250,11 +250,15 @@ header {
     display: none;
     width: 100px;
     height: 100px;
-    content: url("/public/resource/avatars/default.jpg");
     margin-right: auto;
     margin-left: auto;
     border: 2px solid rgb(144, 250, 183);
     border-radius: 50%;
+}
+
+.header-user-avatar:hover {
+    border: 2px solid rgb(54, 255, 128);
+    cursor: pointer;
 }
 
 .header-user-name {
@@ -264,4 +268,9 @@ header {
     font-family: 'MidnightDrive', Helvetica, sans-serif;
     font-size: 130%;
     color: rgb(187, 255, 212);
+}
+
+.header-user-name:hover {
+    color: rgb(54, 255, 128);
+    cursor: pointer;
 }

@@ -63,6 +63,18 @@ class AccountController extends Controller {
         }
     }
 
+    public function editAction() {
+        if (isset($_SESSION['user'])) {
+            $data['title'] = 'Edit Profile';
+            $data['css'] = 'edit_profile';
+            $data['js'] = 'edit_profile';
+            $this->view->generate('editProfileView', 'defaultTemplate', $data);
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
     private function getPublicData() {
         $data = json_decode( file_get_contents('php://input'), true);
         foreach ($data as $key => $value) {

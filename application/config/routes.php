@@ -29,5 +29,10 @@ return [
     'account/logout' => [
         'controller' => 'account',
         'action' => 'logout'
+    ],
+
+    'account/edit' => [
+        'controller' => 'account',
+        'action' => 'edit'
     ]
 ];

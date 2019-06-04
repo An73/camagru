@@ -34,6 +34,7 @@ function checkSession() {
             signModul.style.display = 'none';
             sessionModul.style.display = 'flex';
             avatar.style.display = 'block';
+            avatar.style.content = "url(data['avatar'])";
             username.innerHTML = data['username'];
             username.style.display = 'block';
         }
@@ -71,6 +72,9 @@ let signinResponse = function(data) {
 let submitSignUp = document.getElementById('submit-signup');
 let submitSignIn = document.getElementById('submit-signin');
 let logOutButton = document.getElementById('logout');
+let editProfileButton = document.getElementById('edit-profile');
+let avatar = document.getElementById('header-user-avatar');
+let username = document.getElementById('header-user-name');
 
 submitSignUp.onclick = function(event) {
     event.preventDefault();
@@ -105,6 +109,21 @@ logOutButton.onclick = function(event) {
     event.preventDefault();
     this.blur();
     ajaxTemplate('POST', '/account/logout', null, checkSession);
+}
+
+editProfileButton.onclick = function() {
+    this.blur();
+    location = "/account/edit/";
+}
+
+avatar.onclick = function() {
+    this.blur();
+    location = "/account/edit/";
+}
+
+username.onclick = function() {
+    this.blur();
+    location = "/account/edit/";
 }
 
 checkSession();
