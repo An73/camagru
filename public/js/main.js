@@ -34,7 +34,7 @@ function checkSession() {
             signModul.style.display = 'none';
             sessionModul.style.display = 'flex';
             avatar.style.display = 'block';
-            avatar.style.content = "url(data['avatar'])";
+            avatar.style.content = "url(" + data['avatar'] + ")";
             username.innerHTML = data['username'];
             username.style.display = 'block';
         }

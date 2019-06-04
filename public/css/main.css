@@ -220,6 +220,9 @@ header {
     cursor: pointer;
     color: rgb(80, 80, 80);
     background: rgb(52, 245, 123);
+    border-bottom: 3px solid rgb(80, 80, 80);
+    border-right: 2px solid rgb(80, 80, 80);
+    border-left: 2px solid rgb(80, 80, 80);
 }
 
 .submit-signup-modal:focus {
