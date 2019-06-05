@@ -14,8 +14,8 @@
                 <div class="menu-side">
                     <button id="btn-edit-name" class="button-menu">Edit Name</button>
                     <button id="btn-edit-passwd" class="button-menu">Edit Password</button>
-                    <button class="button-menu">Edit Email</button>
-                    <button class="button-menu">Edit Avatar</button>
+                    <button id="btn-edit-email" class="button-menu">Edit Email</button>
+                    <button id="btn-edit-avatar" class="button-menu">Edit Avatar</button>
                 </div>
             </div>
 
@@ -46,8 +46,20 @@
                 <div id="error-modal-email" class="error-modal"></div>
                 <div class="content-edit">
                     <input id="input-edit-email" class="input-form" autocomplete="off" type="text" name="email" placeholder="New Email">
-                    <input id="submi-edit-email" class="button-menu" type="submit" value="Edit Email">
+                    <input id="submit-edit-email" class="button-menu" type="submit" value="Edit Email">
                     <button id="button-back-email" class="button-back">Back</button>
+                </div>
+            </div>
+
+            <div id="edit-avatar-display">
+                <div class="title-display">Edit Avatar</div>
+                <div id="error-modal-avatar" class="error-modal"></div>
+                <div class="content-edit">
+                    <form action='/account/editavatar' method='post' enctype="multipart/form-data">
+                        <input id="input-edit-avatar" name="avatar" class="upload" type="file" value="Upload Avatar">
+                        <input id="submit-edit-avatar" class="button-menu" type="submit" value="Edit Avatar">
+                    </form>
+                    <button id="button-back-avatar" class="button-back">Back</button>
                 </div>
             </div>
         </div>

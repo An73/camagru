@@ -116,6 +116,32 @@ class AccountController extends Controller {
         }
     }
 
+    public function editemailAction() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'application/json') {
+            $data = $this->getPublicData();
+            if (isset($_SESSION['user'])) {
+                if ($this->model->updateEmail($data)) {
+                    exit('OK');
+                }
+                else {
+                    exit($this->model->getError());
+                }
+            }
+            else {
+                echo "NO 404";
+            }
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
+    public function editavatarAction() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'multipart/form-data') {
+            $data = file_get_contents('php://input');
+        }
+    }
+
     private function getPublicData() {
         $data = json_decode( file_get_contents('php://input'), true);
         foreach ($data as $key => $value) {

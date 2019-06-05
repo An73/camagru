@@ -17,6 +17,7 @@ let btnLogout = document.getElementById('btn-logout');
 let btnEditName = document.getElementById('btn-edit-name');
 let btnEditPasswd = document.getElementById('btn-edit-passwd');
 let btnEditEmail = document.getElementById('btn-edit-email');
+let btnEditAvatar = document.getElementById('btn-edit-avatar');
 
 let editNameDisplay = document.getElementById('edit-name-display');
 let btnSubmitEditName = document.getElementById('submit-edit-username');
@@ -27,6 +28,11 @@ let btnBackPasswd = document.getElementById('button-back-passwd');
 let btnSubmitEditPasswd = document.getElementById('submit-edit-passwd');
 
 let editEmailDisplay = document.getElementById('edit-email-display');
+let btnBackEmail = document.getElementById('button-back-email');
+let btnSubmitEditEmail = document.getElementById('submit-edit-email');
+
+let editAvatarDisplay = document.getElementById('edit-avatar-display');
+let btnSubmitEditAvatar = document.getElementById('submit-edit-avatar');
 
 let editNameResponse = function(data) {
     let errorModal = document.getElementById('error-modal-name');
@@ -135,5 +141,47 @@ btnEditEmail.onclick = function() {
     editEmailDisplay.style.display = 'flex';
 }
 
+btnBackEmail.onclick = function() {
+    this.blur();
+    editEmailDisplay.style.display = 'none';
+    mainDisplay.style.display = 'flex';
+}
+
+let editEmailResponse = function(data) {
+    let errorModal = document.getElementById('error-modal-email');
+    if (data === 'OK') {
+        editEmailDisplay.style.display = 'none';
+        mainDisplay.style.display = 'flex';
+    }
+    else {
+        errorModal.style.display = 'block';
+        errorModal.innerHTML = data;
+    }
+}
+
+btnSubmitEditEmail.onclick = function(event) {
+    let inputEmail = document.getElementById('input-edit-email');
+    event.preventDefault();
+    let json = {};
+    json['newEmail'] = inputEmail.value;
+    json = JSON.stringify(json);
+    ajaxTemplate('POST', '/account/editemail', json, editEmailResponse);
+}
+
+
+
+btnEditAvatar.onclick = function() {
+    let errorModal = document.getElementById('error-modal-avatar');
+    this.blur();
+    errorModal.style.display = 'none';
+    mainDisplay.style.display = 'none';
+    editAvatarDisplay.style.display = 'flex';
+}
+
+btnSubmitEditAvatar.onclick = function(event) {
+    event.preventDefault();
+    console.log(new FormData(this));
+    ajaxTemplate('POST', '/account/editavatar', new FormData(this), null, false);
+}
 
 checkSession();

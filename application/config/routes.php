@@ -44,5 +44,15 @@ return [
     'account/editpasswd' => [
         'controller' => 'account',
         'action' => 'editpasswd'
+    ],
+
+    'account/editemail' => [
+        'controller' => 'account',
+        'action' => 'editemail'
+    ],
+
+    'account/editavatar' => [
+        'controller' => 'account',
+        'action' => 'editavatar'
     ]
 ];

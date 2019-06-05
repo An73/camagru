@@ -100,6 +100,19 @@ class AccountModel extends Model {
         return True;
     }
 
+    public function updateEmail($data) {
+        if (DB::run("SELECT * FROM users WHERE Email=?", [$data['newEmail']])->fetch()) {
+            $this->error = 'This email is busy';
+            return False;
+        }
+        else if(!filter_var($data['newEmail'], FILTER_VALIDATE_EMAIL)) {
+            $this->error = 'Email is incorrect';
+            return False;
+        }
+        DB::run("UPDATE users SET Email=? WHERE Username=?", [$data['newEmail'], $_SESSION['user']]);
+        return True;
+    }
+
     public function getError() {
         return $this->error;
     }

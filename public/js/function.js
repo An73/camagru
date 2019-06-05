@@ -14,14 +14,20 @@ function modalWindow(id) {
     };
 }
 
-function ajaxTemplate(method, url, data, callFunction) {
+function ajaxTemplate(method, url, data, callFunction, contentType = null) {
     let request = new XMLHttpRequest();
     request.open(method, url, true);
-    request.setRequestHeader('Content-Type', 'application/json');
+    if (contentType === null) {
+        request.setRequestHeader('Content-Type', 'application/json');
+    }
+    else {
+        request.overrideMimeType('text/plain; charset=x-user-defined');
+        request.setRequestHeader('Content-Type', 'multipart/form-data');
+    }
     request.send(data);
     request.onreadystatechange = function() {
         if (request.readyState === 4) {
-            if (request.status === 200) {
+            if (request.status === 200 && callFunction !== null) {
                 callFunction(request.responseText);
             }
         }

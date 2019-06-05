@@ -158,6 +158,11 @@
     flex-direction: column;
 }
 
+#edit-avatar-display {
+    display: none;
+    flex-direction: column;
+}
+
 .title-display {
     margin-top: 0;
     height: 40px;
@@ -263,4 +268,13 @@
     background: rgb(44, 209, 105);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.upload {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    font-family: Helvetica, sans-serif;
+    font-size: 100%;
+    color: rgb(36, 36, 36);
 }
