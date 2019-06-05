@@ -75,6 +75,47 @@ class AccountController extends Controller {
         }
     }
 
+    public function editnameAction() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'application/json') {
+            $data = $this->getPublicData();
+            if (isset($_SESSION['user'])) {
+                if ($this->model->updateName($data)) {
+                    $_SESSION['user'] = $data['newUsername'];
+                    exit('OK');
+                }
+                else {
+                    exit($this->model->getError());
+                }
+            }
+            else {
+                echo "NO 404";
+            }
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
+    public function editpasswdAction() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'application/json') {
+            $data = $this->getPublicData();
+            if (isset($_SESSION['user'])) {
+                if ($this->model->updatePasswd($data)) {
+                    exit('OK');
+                }
+                else {
+                    exit($this->model->getError());
+                }
+            }
+            else {
+                echo "NO 404";
+            }
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
     private function getPublicData() {
         $data = json_decode( file_get_contents('php://input'), true);
         foreach ($data as $key => $value) {

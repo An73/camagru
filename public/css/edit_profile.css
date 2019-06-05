@@ -148,6 +148,16 @@
     flex-direction: column;
 }
 
+#edit-passwd-display {
+    display: none;
+    flex-direction: column;
+}
+
+#edit-email-display {
+    display: none;
+    flex-direction: column;
+}
+
 .title-display {
     margin-top: 0;
     height: 40px;
@@ -162,7 +172,7 @@
 }
 
 
-.content-edit-name {
+.content-edit{
     display: flex;
     height: 420px;
     flex-direction: column;
@@ -237,4 +247,20 @@
     border-bottom: 6px solid rgb(52, 245, 123);
     border-right: 3px solid rgb(52, 245, 123);
     border-left: 3px solid rgb(52, 245, 123);
+}
+
+.error-modal {
+    display: none;
+    width: 380px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 110%;
+    color: rgb(255, 50, 50);
+    background: rgb(44, 209, 105);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

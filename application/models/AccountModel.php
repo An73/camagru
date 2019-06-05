@@ -69,6 +69,37 @@ class AccountModel extends Model {
         return True;
     }
 
+    public function updateName($data) {
+        if (!preg_match('/[a-zA-Z0-9_]{2,10}/', $data['newUsername'])) {
+            $this->error = 'Username is incorrect, must be from 2 to 10 characters (a-z A-Z 0-9 _)';
+            return False;
+        }
+        else if (DB::run("SELECT * FROM users WHERE Username=?", [$data['newUsername']])->fetch()) {
+            $this->error = 'This username is busy';
+            return False;
+        }
+        DB::run("UPDATE users SET Username=? WHERE Username=?", [$data['newUsername'], $_SESSION['user']]);
+        return True;
+    }
+
+    public function updatePasswd($data) {
+        $fetch = DB::run("SELECT * FROM users WHERE Username=?", [$_SESSION['user']])->fetch();
+        if (!password_verify($data['passwd'], $fetch['Passwd'])) {
+            $this->error = 'Your Password is incorrect';
+            return False;
+        }
+        else if ($data['newPasswd1'] !== $data['newPasswd2']) {
+            $this->error = 'Passwords do not match';
+            return False;
+        }
+        else if (!preg_match('/[a-zA-Z0-9_-]{6,12}/', $data['newPasswd1'])) {
+            $this->error = 'Password is incorrect, must be from 6 to 12 characters (a-z A-Z 0-9 _ -)';
+            return False;
+        }
+        DB::run("UPDATE users SET Passwd=? WHERE Username=?", [password_hash($data['newPasswd1'], PASSWORD_DEFAULT), $_SESSION['user']]);
+        return True;
+    }
+
     public function getError() {
         return $this->error;
     }
