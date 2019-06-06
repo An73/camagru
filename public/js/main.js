@@ -73,6 +73,7 @@ let submitSignUp = document.getElementById('submit-signup');
 let submitSignIn = document.getElementById('submit-signin');
 let logOutButton = document.getElementById('logout');
 let editProfileButton = document.getElementById('edit-profile');
+let shotButton = document.getElementById('shot-btn');
 let avatar = document.getElementById('header-user-avatar');
 let username = document.getElementById('header-user-name');
 
@@ -124,6 +125,11 @@ avatar.onclick = function() {
 username.onclick = function() {
     this.blur();
     location = "/account/edit/";
+}
+
+shotButton.onclick = function() {
+    this.blur();
+    location = "/shot/shot/";
 }
 
 checkSession();

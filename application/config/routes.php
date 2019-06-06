@@ -54,5 +54,10 @@ return [
     'account/editavatar' => [
         'controller' => 'account',
         'action' => 'editavatar'
+    ],
+
+    'shot/shot' => [
+        'controller' => 'shot',
+        'action' => 'shot'
     ]
 ];

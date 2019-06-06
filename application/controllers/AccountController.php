@@ -137,9 +137,19 @@ class AccountController extends Controller {
     }
 
     public function editavatarAction() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'multipart/form-data') {
-            $data = file_get_contents('php://input');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
+                $name = basename($_FILES['avatar']['name']);
+                $path = "public/resource/avatars/" . $name;
+                if (exif_imagetype($_FILES['avatar']['tmp_name']) == IMAGETYPE_JPEG ||
+                    exif_imagetype($_FILES['avatar']['tmp_name']) == IMAGETYPE_PNG) {
+                        move_uploaded_file($_FILES['avatar']['tmp_name'], $path);
+                        $this->model->updateAvatar($path, $_SESSION['user']);
+                }
+            }
         }
+        $this->view->redirect('account/edit');
+
     }
 
     private function getPublicData() {

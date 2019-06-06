@@ -14,16 +14,10 @@ function modalWindow(id) {
     };
 }
 
-function ajaxTemplate(method, url, data, callFunction, contentType = null) {
+function ajaxTemplate(method, url, data, callFunction) {
     let request = new XMLHttpRequest();
     request.open(method, url, true);
-    if (contentType === null) {
-        request.setRequestHeader('Content-Type', 'application/json');
-    }
-    else {
-        request.overrideMimeType('text/plain; charset=x-user-defined');
-        request.setRequestHeader('Content-Type', 'multipart/form-data');
-    }
+    request.setRequestHeader('Content-Type', 'application/json');
     request.send(data);
     request.onreadystatechange = function() {
         if (request.readyState === 4) {

@@ -55,8 +55,8 @@
                 <div class="title-display">Edit Avatar</div>
                 <div id="error-modal-avatar" class="error-modal"></div>
                 <div class="content-edit">
-                    <form action='/account/editavatar' method='post' enctype="multipart/form-data">
-                        <input id="input-edit-avatar" name="avatar" class="upload" type="file" value="Upload Avatar">
+                    <form action='/account/editavatar' method='POST' enctype='multipart/form-data'>
+                        <input id="input-edit-avatar" name="avatar" class="upload" type="file">
                         <input id="submit-edit-avatar" class="button-menu" type="submit" value="Edit Avatar">
                     </form>
                     <button id="button-back-avatar" class="button-back">Back</button>

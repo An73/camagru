@@ -10,7 +10,7 @@
                     Username VARCHAR(30) NOT NULL,
                     Email VARCHAR(320) NOT NULL,
                     Passwd VARCHAR(255) NOT NULL,
-                    Avatar VARCHAR(30) NOT NULL,
+                    Avatar VARCHAR(255) NOT NULL,
                     Activation VARCHAR(255) NOT NULL,
                     Status BOOLEAN DEFAULT 0)");
     

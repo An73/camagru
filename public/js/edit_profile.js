@@ -178,10 +178,12 @@ btnEditAvatar.onclick = function() {
     editAvatarDisplay.style.display = 'flex';
 }
 
-btnSubmitEditAvatar.onclick = function(event) {
-    event.preventDefault();
-    console.log(new FormData(this));
-    ajaxTemplate('POST', '/account/editavatar', new FormData(this), null, false);
-}
+// btnSubmitEditAvatar.onclick = function() {
+//     this.blur();
+//     editAvatarDisplay.style.display = 'none';
+//     checkSession();
+//     mainDisplay.style.display = 'flex';
+//     console.log("22");
+// }
 
 checkSession();

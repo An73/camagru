@@ -38,7 +38,7 @@ class AccountModel extends Model {
         }
         $stmt = DB::prepare("INSERT INTO users (Username, Email, Passwd, Avatar, Activation) VALUE (?, ?, ?, ?, ?)");
         $stmt->execute([$data['username'], $data['email'], 
-                        password_hash($data['passwd1'], PASSWORD_DEFAULT), "/public/resource/avatars/default.jpg", 
+                        password_hash($data['passwd1'], PASSWORD_DEFAULT), "public/resource/avatars/default.jpg", 
                         hash('sha256', $data['email'])]);
         return True;
     }
@@ -115,6 +115,10 @@ class AccountModel extends Model {
 
     public function getError() {
         return $this->error;
+    }
+
+    public function updateAvatar($avatar, $username) {
+        DB::run("UPDATE users SET Avatar=? WHERE Username=?", ["/".$avatar, $username]);
     }
 
     private function activationMail($email) {
