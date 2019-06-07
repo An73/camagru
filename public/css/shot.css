@@ -1,12 +1,18 @@
+@font-face {
+    font-family: 'MotionPicture';
+    src: url('../fonts/MotionPicture.ttf') format('truetype');
+}
+
 video {
     display: block;
-    filter: url(#blackandwhite);
+    filter: url(#noir);
     width: 500px;
     height: 375px;
 }
 
 canvas {
     display: none;
+    filter: url(#blackandwhite);
     width: 500px;
     height: 375px;
 }
@@ -19,6 +25,8 @@ canvas {
     height: 375px;
     border: 10px solid rgb(80, 80, 80);
     border-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 #publish-btns {
@@ -41,7 +49,7 @@ canvas {
 .btn {
     width: 160px;
     font-family: 'MotionPicture', Helvetica, sans-serif;
-    font-size: 120%;
+    font-size: 180%;
     color: rgb(129, 253, 174);
     padding-top: 10px;
     padding-bottom: 10px;
@@ -71,4 +79,45 @@ canvas {
 
 #canvas-area {
     display: none;
+}
+
+.filter-btns {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: rgb(80, 80, 80);
+    border: 10px solid rgb(80, 80, 80);
+    border-radius: 15px;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.filter-button {
+    width: 230px;
+    margin-top: 10px;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 160%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: rgb(80, 80, 80);
+    color: rgb(44, 209, 105);
+    border-radius: 15px;
+    border: 2px solid rgb(44, 209, 105);
+}
+
+.filter-button:hover {
+    cursor: pointer;
+    color: rgb(80, 80, 80);
+    border: 2px solid rgb(142, 255, 183);
+    background: rgb(52, 245, 123);
+}
+
+.filter-button:focus {
+    outline: none;
+    background: #5CCCCC;
 }
