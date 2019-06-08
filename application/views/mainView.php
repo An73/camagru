@@ -26,7 +26,23 @@
                     <input class="input-signup-modal" required autocomplete="off" type="password" name="passwd" placeholder="Password">
                     <input id="submit-signin" class="submit-signup-modal" type="submit" value="Sign In">
                 </form>
+                <button id="forgot-passwd-btn" class="submit-signup-modal">I forgot password</button>
             </div>
+</div>
+
+<div id="modal-resend-email">
+    <div class="message-confirm">A new password has been sent to your email</div>
+</div>
+
+<div id="modal-resend-passwd">
+    <div class="modal-signup-content">
+        <div class="header-signup-modal">Resend Password</div>
+        <div id="error-resend" class="error-signup-modal"></div>
+        <form id="form-resend" class="form-signup-modal">
+            <input class="input-signup-modal" required autocomplete="off" type="email" name="email" placeholder="Email">
+            <input id="submit-resend" class="submit-signup-modal" type="submit" value="Resend Password">
+        </form>
+    </div>
 </div>
 
 

@@ -68,6 +68,19 @@ let signinResponse = function(data) {
     }
 }
 
+let resendResponse = function(data) {
+    let resendError = document.getElementById('error-resend');
+    let modalResend = document.getElementById('modal-resend-passwd');
+    if (data !== 'OK') {
+        resendError.style.display = 'block';
+        resendError.innerHTML = data;
+    }
+    else {
+        modalResend.style.display = 'none';
+        modalWindow('modal-resend-email');
+    }
+}
+
 
 let submitSignUp = document.getElementById('submit-signup');
 let submitSignIn = document.getElementById('submit-signin');
@@ -76,6 +89,31 @@ let editProfileButton = document.getElementById('edit-profile');
 let shotButton = document.getElementById('shot-btn');
 let avatar = document.getElementById('header-user-avatar');
 let username = document.getElementById('header-user-name');
+let forgotPasswdBtn = document.getElementById('forgot-passwd-btn');
+let submitResend = document.getElementById('submit-resend');
+
+forgotPasswdBtn.onclick = function() {
+    this.blur();
+    let modalSignIn = document.getElementById('modal-signin');
+    let errorModal = document.getElementById('error-resend');
+    errorModal.style.display = 'none';
+    modalSignIn.style.display = 'none';
+    modalWindow('modal-resend-passwd');
+}
+
+submitResend.onclick = function(event) {
+    event.preventDefault();
+    this.blur();
+    let resendError = document.getElementById('error-resend');
+    resendError.style.display = 'none';
+    let formData = new FormData(document.getElementById('form-resend'));
+    let json = {};
+    formData.forEach(function(value, key){
+        json[key] = value;
+    });
+    json = JSON.stringify(json);
+    ajaxTemplate('POST', '/account/resend', json, resendResponse);
+}
 
 submitSignUp.onclick = function(event) {
     event.preventDefault();

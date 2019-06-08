@@ -136,6 +136,21 @@ class AccountController extends Controller {
         }
     }
 
+    public function resendAction() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = $this->getPublicData();
+            if ($this->model->resendPasswd($data)) {
+                exit('OK');
+            }
+            else {
+                exit($this->model->getError());
+            }
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
     public function editavatarAction() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($_FILES['avatar']['error'] == UPLOAD_ERR_OK) {

@@ -1,4 +1,8 @@
 
+<div class="area-top-bttns">
+    <button id="btn-to-main" class="top-button">To main</button>
+    <button id="btn-logout" class="top-button">Logout</button>
+</div>
 <div class="container">
     <video autoplay='true' id="videoElement"></video>
     <canvas id="canvas-area"></canvas>
@@ -22,6 +26,7 @@
     <button class='btn' id="try-again-btn">Try Again</button>
 </div>
 
+<img width="500px" height="500px">
 
 
 <svg id='image' version="1.1" xmlns="http://www.w3.org/2000/svg">

@@ -17,4 +17,15 @@ class ShotController extends Controller {
             echo "NO 404";
         }
     }
+
+    public function publishAction() {
+        if (isset($_SESSION['user'])) {
+            $data = str_replace(' ', '+', $_POST['img']);
+            $data = base64_decode($data);
+            file_put_contents('public/resource/test.png', $data);
+        }
+        else {
+            echo "NO 404";
+        }
+    }
 }

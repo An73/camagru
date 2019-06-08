@@ -33,6 +33,7 @@ let btnSubmitEditEmail = document.getElementById('submit-edit-email');
 
 let editAvatarDisplay = document.getElementById('edit-avatar-display');
 let btnSubmitEditAvatar = document.getElementById('submit-edit-avatar');
+let btnBackAvatar = document.getElementById('button-back-avatar');
 
 let editNameResponse = function(data) {
     let errorModal = document.getElementById('error-modal-name');
@@ -178,12 +179,10 @@ btnEditAvatar.onclick = function() {
     editAvatarDisplay.style.display = 'flex';
 }
 
-// btnSubmitEditAvatar.onclick = function() {
-//     this.blur();
-//     editAvatarDisplay.style.display = 'none';
-//     checkSession();
-//     mainDisplay.style.display = 'flex';
-//     console.log("22");
-// }
+btnBackAvatar.onclick = function() {
+    this.blur();
+    editAvatarDisplay.style.display = 'none';
+    mainDisplay.style.display = 'flex';
+}
 
 checkSession();

@@ -121,6 +121,50 @@ class AccountModel extends Model {
         DB::run("UPDATE users SET Avatar=? WHERE Username=?", ["/".$avatar, $username]);
     }
 
+    public function resendPasswd($data) {
+        $fetch = DB::run("SELECT * FROM users WHERE Email=?", [$data['email']])->fetch();
+        if (!$fetch) {
+            $this->error = "Incorrectly entered email";
+            return False;
+        }
+        $str = 'abcdef12345698nvjs';
+        $shuffled = str_shuffle($str);
+        DB::run("UPDATE users SET Passwd=? WHERE Email=?", [password_hash($shuffled, PASSWORD_DEFAULT), $data['email']]);
+        if (!$this->resendPasswdMail($data['email'], $shuffled)) {
+            $this->error = 'Email not sent, try again later';
+            return False;
+        }
+        return True;
+    }
+
+    private function resendPasswdMail($email, $passwd) {
+        $encoding = "utf-8";
+        $subject_preferences = array(
+		    "input-charset" => $encoding,
+		    "output-charset" => $encoding,
+		    "line-length" => 76,
+		    "line-break-chars" => "\r\n"
+        );
+        $subject = 'New Password';
+	    $header = "Content-type: text/html; charset=".$encoding." \r\n";
+	    $header .= "From: camagru <administration@camagru.com> \r\n";
+	    $header .= "MIME-Version: 1.0 \r\n";
+	    $header .= "Content-Transfer-Encoding: 8bit \r\n";
+	    $header .= "Date: ".date("r (T)")." \r\n";
+        $header .= iconv_mime_encode("Subject", $subject, $subject_preferences);
+
+        $message = '
+            <html>
+                <head>
+                    <title>New Password</title>
+                </head>
+                <body>
+                    <p>Your password to the site Camagru - ' . $passwd . ', after login change it, for security reasons</p>
+                </body>
+            </html>';
+        return mail($email, $subject, $message, $header);
+    }
+
     private function activationMail($email) {
         $encoding = "utf-8";
         $subject_preferences = array(

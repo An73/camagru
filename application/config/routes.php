@@ -56,8 +56,18 @@ return [
         'action' => 'editavatar'
     ],
 
+    'account/resend' => [
+        'controller' => 'account',
+        'action' => 'resend'
+    ],
+
     'shot/shot' => [
         'controller' => 'shot',
         'action' => 'shot'
+    ],
+
+    'shot/publish' => [
+        'controller' => 'shot',
+        'action' => 'publish'
     ]
 ];

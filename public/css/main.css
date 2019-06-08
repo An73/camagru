@@ -112,7 +112,27 @@ header {
     -webkit-transition: 0.5s;
 }
 
+#modal-resend-passwd {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(23, 63, 63, 0.6);
+    -webkit-transition: 0.5s;
+}
+
 #modal-confirm-email {
+    display: none;
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+    background-color: rgba(23, 63, 63, 0.6);
+    -webkit-transition: 0.5s;
+}
+
+#modal-resend-email {
     display: none;
     position: fixed;
 	width: 100%;
@@ -276,4 +296,11 @@ header {
 .header-user-name:hover {
     color: rgb(54, 255, 128);
     cursor: pointer;
+}
+
+#forgot-passwd-btn{
+    display: block;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
 }

@@ -5,28 +5,23 @@
 
 video {
     display: block;
-    filter: url(#noir);
     width: 500px;
     height: 375px;
 }
 
 canvas {
     display: none;
-    filter: url(#blackandwhite);
     width: 500px;
     height: 375px;
 }
 
 .container {
-    margin-top: 120px;
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     width: 500px;
     height: 375px;
     border: 10px solid rgb(80, 80, 80);
-    border-radius: 15px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
 #publish-btns {
@@ -120,4 +115,37 @@ canvas {
 .filter-button:focus {
     outline: none;
     background: #5CCCCC;
+}
+
+.area-top-bttns {
+    display: flex;
+    justify-content: space-between;
+    width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-top: 100px;
+}
+
+.top-button {
+    width: 140px;
+    height: 40px;
+    border: 8px solid rgb(80, 80, 80);
+    background: rgb(80, 80, 80);
+    border-bottom: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 170%;
+    color: rgb(44, 209, 105);
+}
+
+.top-button:hover {
+    cursor: pointer;
+    color: rgb(185, 255, 211);
+}
+
+.top-button:focus {
+    outline: none;
+    color: rgb(5, 252, 95);
 }
