@@ -12,7 +12,7 @@ let filterRaccoon1 = document.getElementById('filter-raccoon-1');
 let filterRaccoon2 = document.getElementById('filter-raccoon-2');
 let filterRocketman = document.getElementById('filter-rocketman');
 let filterPenguin = document.getElementById('filter-penguin');
-let filterNoir = document.getElementById('filter-noir');
+let filterCat = document.getElementById('filter-cat');
 
 let image = document.getElementById('image-area');
 let shot;
@@ -99,8 +99,9 @@ filterPenguin.onclick = function() {
   sendImage('img=' + shot + '&filter=penguin');
 }
 
-filterNoir.onclick = function() {
+filterCat.onclick = function() {
   this.blur();
+  sendImage('img=' + shot + '&filter=cat');
 }
 
 disabledButton('false');
@@ -132,5 +133,5 @@ function disabledButton($val) {
   filterPenguin.disabled = $val;
   filterRaccoon2.disabled = $val;
   filterRocketman.disabled = $val;
-  filterNoir.disabled = $val;
+  filterCat.disabled = $val;
 }

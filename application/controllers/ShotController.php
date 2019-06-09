@@ -37,6 +37,8 @@ class ShotController extends Controller {
                     $this->applyFilter('public/resource/filter/rocketman.png', 10, -140);
                 case 'penguin':
                     $this->applyFilter('public/resource/filter/penguin.png', -20, 0);
+                case 'cat':
+                    $this->applyFilter('public/resource/filter/cat.png', -330, -30);
             }
 
         }

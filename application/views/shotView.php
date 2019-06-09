@@ -14,7 +14,7 @@
     <button id="filter-raccoon-2" class="filter-button">Raccoon B</button>
     <button id="filter-rocketman" class="filter-button">Rocketman</button>
     <button id="filter-penguin" class="filter-button">Penguin-Dog</button>
-    <button id="filter-noir" class="filter-button">Noir</button>
+    <button id="filter-cat" class="filter-button">Cat</button>
 </div>
 
 <div id="main-btns" class="container-btn">
