@@ -10,8 +10,8 @@ let tryAgainBtn = document.getElementById('try-again-btn');
 let filterClear = document.getElementById('filter-clear');
 let filterRaccoon1 = document.getElementById('filter-raccoon-1');
 let filterRaccoon2 = document.getElementById('filter-raccoon-2');
-let filterInverse = document.getElementById('filter-inverse');
-let filterBluefill = document.getElementById('filter-bluefill');
+let filterRocketman = document.getElementById('filter-rocketman');
+let filterPenguin = document.getElementById('filter-penguin');
 let filterNoir = document.getElementById('filter-noir');
 
 let image = document.getElementById('image-area');
@@ -86,15 +86,17 @@ filterRaccoon1.onclick = function() {
 
 filterRaccoon2.onclick = function() {
   this.blur();
-  sendImage('img=' + shot + '&filter=raccoon-2')
+  sendImage('img=' + shot + '&filter=raccoon-2');
 }
 
-filterInverse.onclick = function() {
+filterRocketman.onclick = function() {
   this.blur();
+  sendImage('img=' + shot + '&filter=rocketman');
 }
 
-filterBluefill.onclick = function() {
+filterPenguin.onclick = function() {
   this.blur();
+  sendImage('img=' + shot + '&filter=penguin');
 }
 
 filterNoir.onclick = function() {
@@ -127,8 +129,8 @@ function sendImage(data) {
 function disabledButton($val) {
   filterClear.disabled = $val;
   filterRaccoon1.disabled = $val;
-  filterBluefill.disabled = $val;
+  filterPenguin.disabled = $val;
   filterRaccoon2.disabled = $val;
-  filterInverse.disabled = $val;
+  filterRocketman.disabled = $val;
   filterNoir.disabled = $val;
 }
