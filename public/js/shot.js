@@ -7,12 +7,15 @@ let publishBtns = document.getElementById('publish-btns');
 
 let tryAgainBtn = document.getElementById('try-again-btn');
 
-let filterStandart = document.getElementById('filter-standart');
-let filterBlur = document.getElementById('filter-blur');
-let filterBW = document.getElementById('filter-bandw');
+let filterClear = document.getElementById('filter-clear');
+let filterRaccoon1 = document.getElementById('filter-raccoon-1');
+let filterRaccoon2 = document.getElementById('filter-raccoon-2');
 let filterInverse = document.getElementById('filter-inverse');
 let filterBluefill = document.getElementById('filter-bluefill');
 let filterNoir = document.getElementById('filter-noir');
+
+let image = document.getElementById('image-area');
+let shot;
 
 let toMainBtn = document.getElementById('btn-to-main');
 let logoutBtn = document.getElementById('btn-logout');
@@ -42,63 +45,63 @@ if (navigator.mediaDevices.getUserMedia) {
 
 shotBtn.onclick = function() {
   this.blur();
+  disabledButton('');
   video.style.display = 'none';
   mainBtns.style.display = 'none';
   publishBtns.style.display = 'flex';
-  canvas.style.display = 'block';
+  canvas.style.display = 'none';
   context = canvas.getContext('2d');
   canvas.width = 500;
   canvas.height = 375;
   context.drawImage(video, 0, 0, 500, 375);
-  let img = canvas.toDataURL('image/png').replace('data:image/png;base64,', '');
+  shot = canvas.toDataURL('image/png').replace('data:image/png;base64,', '');
+  sendImage('img=' + shot + '&filter=clear');
 
-  document.querySelector("img").src = canvas.toDataURL();
-
-  let publishButton = document.getElementById('publish-btn');
-  publishButton.onclick = function() {
-    this.blur();
-    sendImage('img=' + img);
-  }
-  console.log(img);
+  // let publishButton = document.getElementById('publish-btn');
+  // publishButton.onclick = function() {
+  //   this.blur();
+  //   sendImage('img=' + img + '&filter=' + filter);
+  // }
+  console.log(shot);
 }
 
 tryAgainBtn.onclick = function() {
   this.blur();
+  disabledButton('false');
   video.style.display = 'block';
   mainBtns.style.display = 'flex';
   publishBtns.style.display = 'none';
-  canvas.style.display = 'none';
+  image.style.display = 'none';
 }
 
-filterStandart.onclick = function() {
+filterClear.onclick = function() {
   this.blur();
-  filterApply('');
+  sendImage('img=' + shot + '&filter=clear');
 }
 
-filterBlur.onclick = function() {
+filterRaccoon1.onclick = function() {
   this.blur();
-  filterApply('#blurEffect');
+  sendImage('img=' + shot + '&filter=raccoon-1');
 }
 
-filterBW.onclick = function() {
+filterRaccoon2.onclick = function() {
   this.blur();
-  filterApply('#blackandwhite');
+  sendImage('img=' + shot + '&filter=raccoon-2')
 }
 
 filterInverse.onclick = function() {
   this.blur();
-  filterApply('#inverse');
 }
 
 filterBluefill.onclick = function() {
   this.blur();
-  filterApply('#bluefill');
 }
 
 filterNoir.onclick = function() {
   this.blur();
-  filterApply('#noir');
 }
+
+disabledButton('false');
 
 function filterApply(filter) {
   video.style.filter = 'url(' + filter + ')';
@@ -113,9 +116,19 @@ function sendImage(data) {
     request.onreadystatechange = function() {
         if (request.readyState === 4) {
             if (request.status === 200) {
-                
+                image.style.display = 'block';
+                image.src = request.responseText;
 
             }
         }
     };
+}
+
+function disabledButton($val) {
+  filterClear.disabled = $val;
+  filterRaccoon1.disabled = $val;
+  filterBluefill.disabled = $val;
+  filterRaccoon2.disabled = $val;
+  filterInverse.disabled = $val;
+  filterNoir.disabled = $val;
 }

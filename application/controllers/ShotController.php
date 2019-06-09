@@ -22,10 +22,40 @@ class ShotController extends Controller {
         if (isset($_SESSION['user'])) {
             $data = str_replace(' ', '+', $_POST['img']);
             $data = base64_decode($data);
-            file_put_contents('public/resource/test.png', $data);
+            file_put_contents('public/resource/work/work.png', $data);
+
+            switch ($_POST['filter']){
+                 case 'clear':
+                    $imageData = base64_encode(file_get_contents('public/resource/work/work.png'));
+                    $src = 'data: '.mime_content_type('public/resource/work/work.png').';base64,'.$imageData;
+                    exit($src);
+                case 'raccoon-1':
+                    $this->applyFilter('public/resource/filter/raccoon1.png', 20, 30);
+                case 'raccoon-2':
+                    $this->applyFilter('public/resource/filter/raccoon2.png', -300, 78);
+            }
+
         }
         else {
             echo "NO 404";
         }
+    }
+
+    private function applyFilter($pathFilter, $x, $y) {
+        $wm = imagecreatefrompng($pathFilter);
+        $wmW=imagesx($wm);
+        $wmH=imagesy($wm);
+        $image=imagecreatetruecolor($wmW, $wmH);
+        $image=imagecreatefrompng('public/resource/work/work.png');
+        $size=getimagesize('public/resource/work/work.png');
+        $cx=$size[0]-$wmW+$x;
+        $cy=$size[1]-$wmH+$y;
+        imagecopyresampled ($image, $wm, $cx, $cy, 0, 0, $wmW, $wmH, $wmW, $wmH);
+        imagepng($image,'public/resource/work/work.png',9);
+        imagedestroy($image);
+        imagedestroy($wm);
+        $imageData = base64_encode(file_get_contents('public/resource/work/work.png'));
+        $src = 'data: '.mime_content_type('public/resource/work/work.png').';base64,'.$imageData;
+        exit($src);
     }
 }
