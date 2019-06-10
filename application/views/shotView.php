@@ -9,7 +9,7 @@
     <img id="image-area">
 </div>
 <div class="filter-btns">
-    <button id="filter-clear" class="filter-button">Clear</button>
+    <button id="filter-pepe" class="filter-button">Pepe</button>
     <button id="filter-raccoon-1" class="filter-button">Raccoon A</button>
     <button id="filter-raccoon-2" class="filter-button">Raccoon B</button>
     <button id="filter-rocketman" class="filter-button">Rocketman</button>
@@ -19,7 +19,10 @@
 
 <div id="main-btns" class="container-btn">
     <button class='btn' id="shot-btn">Shot</button>
-    <button class='btn' id="upload-img-btn">Upload Image</button>
+    <div id='upload-btn-wrapper' class="upload-btn-wrapper">
+        <button class='btn' id="upload-img-btn">Upload Image</button>
+        <input type='file' name='image-upload' id='input-image'  accept="image/jpeg" max-size=32154>
+    </div>
 </div>
 
 <div id="publish-btns" class="container-btn">

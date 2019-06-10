@@ -5,9 +5,11 @@ let canvas = document.getElementById('canvas-area');
 let mainBtns = document.getElementById('main-btns');
 let publishBtns = document.getElementById('publish-btns');
 
+let uploadButton = document.getElementById('upload-btn-wrapper');
+
 let tryAgainBtn = document.getElementById('try-again-btn');
 
-let filterClear = document.getElementById('filter-clear');
+let filterPepe = document.getElementById('filter-pepe');
 let filterRaccoon1 = document.getElementById('filter-raccoon-1');
 let filterRaccoon2 = document.getElementById('filter-raccoon-2');
 let filterRocketman = document.getElementById('filter-rocketman');
@@ -19,6 +21,7 @@ let shot;
 
 let toMainBtn = document.getElementById('btn-to-main');
 let logoutBtn = document.getElementById('btn-logout');
+let imageInput = document.getElementById('input-image');
 
 toMainBtn.onclick = function() {
   this.blur();
@@ -54,14 +57,8 @@ shotBtn.onclick = function() {
   canvas.width = 500;
   canvas.height = 375;
   context.drawImage(video, 0, 0, 500, 375);
-  shot = canvas.toDataURL('image/png').replace('data:image/png;base64,', '');
+  shot = canvas.toDataURL('image/jpeg').replace('data:image/jpeg;base64,', '');
   sendImage('img=' + shot + '&filter=clear');
-
-  // let publishButton = document.getElementById('publish-btn');
-  // publishButton.onclick = function() {
-  //   this.blur();
-  //   sendImage('img=' + img + '&filter=' + filter);
-  // }
   console.log(shot);
 }
 
@@ -74,9 +71,9 @@ tryAgainBtn.onclick = function() {
   image.style.display = 'none';
 }
 
-filterClear.onclick = function() {
+filterPepe.onclick = function() {
   this.blur();
-  sendImage('img=' + shot + '&filter=clear');
+  sendImage('img=' + shot + '&filter=pepe');
 }
 
 filterRaccoon1.onclick = function() {
@@ -104,16 +101,37 @@ filterCat.onclick = function() {
   sendImage('img=' + shot + '&filter=cat');
 }
 
+imageInput.onchange = function() {
+
+  disabledButton('');
+  video.style.display = 'none';
+  mainBtns.style.display = 'none';
+  publishBtns.style.display = 'flex';
+
+  let input = this.files[0];
+  let reader = new FileReader();
+  reader.readAsDataURL(input);
+  reader.onload = function() {
+    let encoded = reader.result.replace(/^data:(.*;base64,)?/, '');
+      if ((encoded.length % 4) > 0) {
+        encoded += '='.repeat(4 - (encoded.length % 4));
+      }
+    console.log(reader.result);
+    sendImage('img=' + encoded + '&filter=clear');
+    shot = encoded;
+  }
+}
+
 disabledButton('false');
 
-function filterApply(filter) {
-  video.style.filter = 'url(' + filter + ')';
-  canvas.style.filter = 'url(' + filter + ')';
-}
+// function filterApply(filter) {
+//   video.style.filter = 'url(' + filter + ')';
+//   canvas.style.filter = 'url(' + filter + ')';
+// }
 
 function sendImage(data) {
   let request = new XMLHttpRequest();
-    request.open('POST', '/shot/publish', true);
+    request.open('POST', '/shot/filter', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(data);
     request.onreadystatechange = function() {
@@ -128,7 +146,7 @@ function sendImage(data) {
 }
 
 function disabledButton($val) {
-  filterClear.disabled = $val;
+  filterPepe.disabled = $val;
   filterRaccoon1.disabled = $val;
   filterPenguin.disabled = $val;
   filterRaccoon2.disabled = $val;

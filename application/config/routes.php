@@ -66,6 +66,11 @@ return [
         'action' => 'shot'
     ],
 
+    'shot/filter' => [
+        'controller' => 'shot',
+        'action' => 'filter'
+    ],
+
     'shot/publish' => [
         'controller' => 'shot',
         'action' => 'publish'
