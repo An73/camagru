@@ -11,6 +11,7 @@ class MainController extends Controller {
         $data['title'] = 'Camagru';
         $data['css'] = 'main';
         $data['js'] = 'main';
+        $data['posts'] = $this->model->getAllPosts();
         $this->view->generate('mainView', 'defaultTemplate', $data);
     }
 }

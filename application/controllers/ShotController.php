@@ -49,6 +49,17 @@ class ShotController extends Controller {
         }
     }
 
+    public function publishAction() {
+        if (isset($_SESSION['user'])) {
+            $fileName = $_SESSION['user'] . date("YmdHis") . '.jpeg';
+            copy('public/resource/work/work.jpeg', 'public/resource/posts/'.$fileName);
+            $this->model->insertPost($_SESSION['user'], $fileName);
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
     private function applyFilter($pathFilter, $x, $y) {
         $wm = imagecreatefrompng($pathFilter);
         $wmW=imagesx($wm);

@@ -63,18 +63,11 @@
     </div>
 </header>
 <div class="photo-place">
-    <div class="photo">
-    </div>
-    <div class="photo">
-    </div>
-    <div class="photo">
-    </div>
-    <div class="photo">
-    </div>
-    <div class="photo">
-    </div>
-    <div class="photo">
-    </div>
-    <div class="photo">
-    </div>
+    <?php foreach ($posts as $val): ?>
+        <div class="post" tabindex="0">
+            <img width="300" height="225" 
+                src="<?php echo 'public/resource/posts/' . $val['Post'] ?>" 
+                data-id="<?php echo $val['ID']?>">
+        </div>
+    <?php endforeach; ?>
 </div>

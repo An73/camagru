@@ -17,8 +17,8 @@
     DB::query("CREATE TABLE IF NOT EXISTS posts
                     (ID INT(10) AUTO_INCREMENT PRIMARY KEY,
                     UserID INT(10) NOT NULL,
-                    Dat DATETIME NOT NULL,
-                    Post VARCHAR(30) NOT NULL)");
+                    Dat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    Post VARCHAR(255) NOT NULL)");
     
     DB::query("CREATE TABLE IF NOT EXISTS likes
                     (ID INT(10) AUTO_INCREMENT PRIMARY KEY,
