@@ -22,7 +22,6 @@ function checkSession() {
         let sessionModul = document.getElementById('header-session');
         let avatar = document.getElementById('header-user-avatar');
         let username = document.getElementById('header-user-name');
-        console.log(data);
         data = JSON.parse(data);
         if (data['username'] === 'none') {
             signModul.style.display = 'flex';
@@ -91,6 +90,7 @@ let avatar = document.getElementById('header-user-avatar');
 let username = document.getElementById('header-user-name');
 let forgotPasswdBtn = document.getElementById('forgot-passwd-btn');
 let submitResend = document.getElementById('submit-resend');
+let post = document.getElementsByClassName('post');
 
 forgotPasswdBtn.onclick = function() {
     this.blur();
@@ -169,6 +169,17 @@ shotButton.onclick = function() {
     this.blur();
     location = "/shot/shot/";
 }
+
+
+post = Array.from(post);
+post.forEach(function(element) {
+    element.onclick = function() {
+        this.blur();
+        let idPost = this.getElementsByTagName('img')[0].getAttribute('data-id');
+        location = "/post?idpost=" + idPost;
+    }
+});
+
 
 checkSession();
 signButton();

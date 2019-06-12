@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+}
+
+header {
+    background: #5CCCCC;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-bottom: 3px solid rgb(211, 255, 255);
+}
+
+@font-face {
+    font-family: 'MidnightDrive';
+    src: url('../fonts/MidnightDrive.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MotionPicture';
+    src: url('../fonts/MotionPicture.ttf') format('truetype');
+}
+
+.header-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 250px;
+}
+
+.header-user-avatar {
+    display: none;
+    width: 100px;
+    height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid rgb(144, 250, 183);
+    border-radius: 50%;
+}
+
+
+.header-user-name {
+    display: none;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'MidnightDrive', Helvetica, sans-serif;
+    font-size: 130%;
+    color: rgb(187, 255, 212);
+}
+
+.header-logo {
+    font-family: 'MidnightDrive', Helvetica, sans-serif;
+    font-size: 800%;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(53, 53, 53);
+}
+
+.header-tomain {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.header-button {
+    width: 170px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 150%;
+    color: rgb(185, 255, 211);
+    padding: 5px;
+    border-radius: 20px;
+    background: #5CCCCC;
+    border: 2px solid rgb(144, 250, 183);
+}
+
+.header-button:hover{
+    cursor: pointer;
+    color: rgb(129, 253, 174);
+    border: 2px solid rgb(118, 255, 168);
+}
+
+.header-button:focus {
+    outline: none;
+    color: rgb(64, 255, 134);
+    border: 2px solid rgb(194, 255, 197);
+}
+
+#logout {
+    display: none;
+}
+
+.post {
+    display: block;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 640px;
+    height: 480px;
+    border: 6px solid #5CCCCC;
+    border-radius: 7px;
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgb(97, 231, 231);
+    border: 2px solid rgb(174, 250, 250);
+    border-radius: 7px;
+}
+
+.user-i {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-avatar-i {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(187, 255, 212);
+    border-radius: 50%;
+}
+
+.user-name-i {
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 220%;
+    margin-left: 15px;
+    padding-top: 12px;
+    color: rgb(187, 255, 212);
+}
+
+.date-i {
+    display: flex;
+    flex-direction: row;
+}
+
+.date-title-i {
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 220%;
+    margin-right: 15px;
+    padding-top: 12px;
+    color: rgb(187, 255, 212);
+}
+
+.date-post {
+    font-family: Helvetica, sans-serif;
+    font-size: 110%;
+    margin-right: 15px;
+    padding-top: 20px;
+    color: rgb(187, 255, 212);
+}
+
+.user-date {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(174, 250, 250);
+}
+
+.count-likes-comments {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(174, 250, 250);
+}
+
+.likes {
+    display: flex;
+    flex-direction: row;
+}
+
+.like-title {
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 220%;
+    margin-right: 15px;
+    color: rgb(187, 255, 212);
+}
+
+.like-count {
+    font-family: 'MidnightDrive', Helvetica, sans-serif;
+    font-size: 190%;
+    margin-right: 15px;
+    color: rgb(187, 255, 212);
+}
+
+.comments-count {
+    display: flex;
+    flex-direction: row;
+}
+
+.like-icon {
+    margin-right: 25px;
+    margin-left: 10px;
+    content: url('/public/resource/like.png');
+    width: 35px;
+    height: 35px;
+}
+
+.like-icon:hover {
+    cursor: pointer;
+    content: url('/public/resource/like-hover.png');
+}

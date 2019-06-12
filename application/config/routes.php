@@ -74,5 +74,20 @@ return [
     'shot/publish' => [
         'controller' => 'shot',
         'action' => 'publish'
+    ],
+
+    'post' => [
+        'controller' => 'post',
+        'action' => 'index'
+    ], 
+
+    'post/count' => [
+        'controller' => 'post',
+        'action' => 'count'
+    ],
+
+    'post/like' => [
+        'controller' => 'post',
+        'action' => 'like'
     ]
 ];
