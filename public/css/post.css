@@ -163,7 +163,7 @@ header {
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-bottom: 2px solid rgb(174, 250, 250);
+    border-bottom: 2px solid rgb(187, 255, 212);
 }
 
 .count-likes-comments {
@@ -174,7 +174,7 @@ header {
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 5px;
-    border-bottom: 2px solid rgb(174, 250, 250);
+    border-bottom: 2px solid rgb(187, 255, 212);
 }
 
 .likes {
@@ -212,4 +212,106 @@ header {
 .like-icon:hover {
     cursor: pointer;
     content: url('/public/resource/like-hover.png');
+}
+
+.new-comment-div {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(187, 255, 212);
+}
+
+
+.input-comment {
+    font-family: Helvetica, sans-serif;
+    font-size: 90%;
+    background: rgb(167, 243, 243);
+    border: 3px solid rgb(144, 250, 183);
+    border-radius: 40px;
+    width: 380px;
+    resize:none;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.input-comment:hover {
+    border: 3px solid rgb(176, 255, 205);
+}
+
+.input-comment:focus {
+    outline: none;
+    background: rgb(185, 255, 255);
+    border: 3px solid rgb(176, 255, 205);
+}
+
+.input-comment::placeholder {
+    text-align: center;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 250%;
+    color: rgb(94, 94, 94);
+}
+
+.input-comment:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.submit-comment {
+    width: 170px;
+    background: rgb(97, 231, 231);
+    border: 3px solid rgb(144, 250, 183);
+    border-radius: 40px;
+    text-align: center;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 250%;
+    color: rgb(187, 255, 212);
+}
+
+.submit-comment:hover{
+    cursor: pointer;
+    color: rgb(129, 253, 174);
+    border: 3px solid rgb(118, 255, 168);
+}
+
+.submit-comment:focus {
+    outline: none;
+    color: rgb(64, 255, 134);
+    border: 3px solid rgb(194, 255, 197);
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.comment-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.user-comment {
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    font-size: 210%;
+    width: 200px;
+    text-align: center;
+    color: rgb(94, 94, 94);
+}
+
+.comment {
+    width: 380px;
+    background: rgb(194, 255, 197);
+    border: 3px solid rgb(144, 250, 183);
+    border-radius: 20px;
+    padding: 10px;
+    color: rgb(94, 94, 94);
+    font-family: Helvetica, sans-serif;
 }
