@@ -89,5 +89,15 @@ return [
     'post/like' => [
         'controller' => 'post',
         'action' => 'like'
+    ],
+
+    'post/comments' => [
+        'controller' => 'post',
+        'action' => 'comments'
+    ], 
+
+    'post/newcomment' => [
+        'controller' => 'post',
+        'action' => 'newcomment'
     ]
 ];

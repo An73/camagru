@@ -4,17 +4,22 @@ let post = document.getElementById('post');
 let likeCount = document.getElementById('like-count');
 let commentCount = document.getElementById('comment-count');
 let likeUrl;
+let commentsBlock = document.getElementById('comments');
+let submitComment = document.getElementById('submit-comment');
+let toMainBtn = document.getElementById('to-main');
 
 function checkSession() {
     let sessionResponse = function(data) {
         let userAvatar = document.getElementById('header-user-avatar');
         let userName = document.getElementById('header-user-name');
+        let newCommentDiv = document.getElementById('new-comment-div');
         data = JSON.parse(data);
         if (data['username'] === 'none') {
             userAvatar.style.display = 'none';
             userName.style.display = 'none';
             logoutBtn.style.display = 'none';
             likeIcon.style.display = 'none';
+            newCommentDiv.style.display = 'none';
         }
         else {
             userAvatar.style.display = 'block';
@@ -23,6 +28,7 @@ function checkSession() {
             userName.innerHTML = data['username'];
             logoutBtn.style.display = 'block';
             likeIcon.style.display = 'block';
+            newCommentDiv.style.display = 'flex';
         }
     };
     ajaxTemplate('POST', 'account/session', null, sessionResponse);
@@ -51,6 +57,32 @@ function checkLikesAndComments() {
     ajaxTemplate('POST', 'post/count', json, countResponse);
 }
 
+function checkComments() {
+    comments.innerHTML = '';
+    let displayComments = function(data) {
+        data = JSON.parse(data);
+        data.forEach(element => {
+            let commentDivElement = document.createElement('div');
+            commentDivElement.className = 'comment-div';
+            comments.appendChild(commentDivElement);
+            let userCommentElement = document.createElement('div');
+            userCommentElement.className = 'user-comment';
+            userCommentElement.innerHTML = element['Username'];
+            
+            let commentElement = document.createElement('div');
+            commentElement.className = 'comment';
+            commentElement.innerHTML = element['Comment'];
+
+            commentDivElement.appendChild(userCommentElement);
+            commentDivElement.appendChild(commentElement);
+        });
+    }
+    let json = {};
+    json['id'] = post.getAttribute('data-id');
+    json = JSON.stringify(json);
+    ajaxTemplate('POST', 'post/comments', json, displayComments);
+}
+
 likeIcon.onmouseover = function() {
     likeIcon.style.content = "url(public/resource/like-hover.png)";
 }
@@ -74,5 +106,29 @@ logoutBtn.onclick = function() {
     ajaxTemplate('POST', '/account/logout', null, checkSession);
 }
 
+toMainBtn.onclick = function() {
+    this.blur();
+    location = "/";
+}
+
+submitComment.onclick = function() {
+
+    let countResponse = function(data) {
+        data = JSON.parse(data);
+        commentCount.innerHTML = data['comments'];
+    }
+
+    this.blur();
+    let newComment = document.getElementById('new-comment');
+    let json = {};
+    json['id'] = post.getAttribute('data-id');
+    json['comment'] = newComment.value;
+    json = JSON.stringify(json);
+    ajaxTemplate('POST', 'post/newcomment', json, countResponse);
+    newComment.value = '';
+    checkComments();
+}
+
 checkSession();
+checkComments();
 checkLikesAndComments();

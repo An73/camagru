@@ -44,22 +44,10 @@
             <div id="comment-count" class="like-count"></div>
         </div>
     </div>
-    <div class="new-comment-div">
-        <textarea class="input-comment" type=text require autocomplete="off" maxlength="180" placeholder="New Comment"></textarea>
+    <div id="new-comment-div" class="new-comment-div">
+        <textarea id="new-comment" class="input-comment" type=text require autocomplete="off" maxlength="180" placeholder="New Comment"></textarea>
         <button id="submit-comment" class="submit-comment">Submit</button>
     </div>
-    <div class="comments">
-        <div class="comment-div">
-            <div class="user-comment">Cama:</div>
-            <div class="comment">ASdas dsf akjsdfl jal kdjasfl jsadfadsfsadf adsf jkdsf kdsh gkdhsfkj ghdfskj ghjksdf hgk</div>
-        </div>
-        <div class="comment-div">
-            <div class="user-comment">Cama:</div>
-            <div class="comment">ASdas dsf akjsdfl jal kdjasfl jsadfadsfsadf adsf jkdsf kdsh gkdhsfkj ghdfskj ghjksdf hgk</div>
-        </div>
-        <div class="comment-div">
-            <div class="user-comment">Cama:</div>
-            <div class="comment">ASdas dsf akjsdfl jal kdjasfl jsadfadsfsadf adsf jkdsf kdsh gkdhsfkj ghdfskj ghjksdf hgk</div>
-        </div>
+    <div class="comments" id="comments">
     </div>
 </div>

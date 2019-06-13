@@ -42,4 +42,17 @@ class PostModel extends Model {
             DB::run('DELETE FROM likes WHERE UserID=? AND PostID=?', [$userID, $id]);
         }
     }
+
+    public function getComments($id) {
+        return DB::run('SELECT Username, Comment FROM comments
+                        INNER JOIN users
+                        ON comments.UserID = users.ID
+                        WHERE comments.PostID=?', [$id])->fetchAll();
+    }
+
+    public function newComment($id, $comment) {
+        $userID = DB::run('SELECT ID FROM users WHERE Username=?', [$_SESSION['user']])->fetch()['ID'];
+        $stmt = DB::prepare('INSERT INTO comments (PostID, UserID, Comment) VALUE (?, ?, ?)');
+        $stmt->execute([$id, $userID, $comment]);
+    }
 }

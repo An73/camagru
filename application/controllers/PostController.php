@@ -37,6 +37,19 @@ class PostController extends Controller {
         }
     }
 
+    public function commentsAction() {
+        $data = $this->getPublicData();
+        $ret = $this->model->getComments($data['id']);
+        exit(json_encode($ret));
+    }
+
+    public function newcommentAction() {
+        $data = $this->getPublicData();
+        $this->model->newComment($data['id'], $data['comment']);
+        $ret = $this->model->getCountLikesAndComments($data['id']);
+        exit(json_encode($ret));
+    }
+
     private function getPublicData() {
         $data = json_decode( file_get_contents('php://input'), true);
         foreach ($data as $key => $value) {
