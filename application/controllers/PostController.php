@@ -50,6 +50,23 @@ class PostController extends Controller {
         exit(json_encode($ret));
     }
 
+    public function checkdeleteAction() {
+        $data = $this->getPublicData();
+        if (isset($_SESSION['user'])){
+            exit($this->model->checkDelete($data['id']));
+        }
+        else {
+            exit(FALSE);
+        }
+    }
+
+    public function deleteAction() {
+        $data = $this->getPublicData();
+        if (isset($_SESSION['user'])) {
+            $this->model->deletePost($data['id']);
+        }
+    }
+
     private function getPublicData() {
         $data = json_decode( file_get_contents('php://input'), true);
         foreach ($data as $key => $value) {

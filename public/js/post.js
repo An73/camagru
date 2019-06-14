@@ -7,6 +7,7 @@ let likeUrl;
 let commentsBlock = document.getElementById('comments');
 let submitComment = document.getElementById('submit-comment');
 let toMainBtn = document.getElementById('to-main');
+let deleteBtn = document.getElementById('delete-this');
 
 function checkSession() {
     let sessionResponse = function(data) {
@@ -29,6 +30,7 @@ function checkSession() {
             logoutBtn.style.display = 'block';
             likeIcon.style.display = 'block';
             newCommentDiv.style.display = 'flex';
+            checkButtonDelete();
         }
     };
     ajaxTemplate('POST', 'account/session', null, sessionResponse);
@@ -127,6 +129,29 @@ submitComment.onclick = function() {
     ajaxTemplate('POST', 'post/newcomment', json, countResponse);
     newComment.value = '';
     location = "/post?idpost=" + post.getAttribute('data-id');
+}
+
+function checkButtonDelete() {
+    let deleteBtnResponse = function(data) {
+        if (data) {
+            deleteBtn.style.display = 'block';
+        }
+        else {
+            deleteBtn.style.display = 'none';
+        }
+    }
+    let json = {};
+    json['id'] = post.getAttribute('data-id');
+    json = JSON.stringify(json);
+    ajaxTemplate('POST', 'post/checkdelete', json, deleteBtnResponse);
+}
+
+deleteBtn.onclick = function() {
+    let json = {};
+    json['id'] = post.getAttribute('data-id');
+    json = JSON.stringify(json);
+    ajaxTemplate('POST', 'post/delete', json, null);
+    location = "/";
 }
 
 checkSession();

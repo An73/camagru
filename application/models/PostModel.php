@@ -60,6 +60,23 @@ class PostModel extends Model {
         }
     }
 
+    public function checkDelete($id) {
+        $check = DB::run('SELECT * FROM posts
+                    INNER JOIN users
+                    ON posts.UserID = users.ID
+                    WHERE users.Username=? AND posts.ID=?', [$_SESSION['user'], $id])->fetch();
+        if ($check) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function deletePost($id) {
+        if ($this->checkDelete($id)) {
+            DB::run('')
+        }
+    }
+
     private function sendEmailComment($email, $comment) {
         $encoding = "utf-8";
         $subject_preferences = array(

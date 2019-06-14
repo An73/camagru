@@ -109,5 +109,15 @@ return [
     'account/editnot' => [
         'controller' => 'account',
         'action' => 'editnot'
+    ],
+
+    'post/checkdelete' => [
+        'controller' => 'post',
+        'action' => 'checkdelete'
+    ], 
+
+    'post/delete' => [
+        'controller' => 'post',
+        'action' => 'delete'
     ]
 ];

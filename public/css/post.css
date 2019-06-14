@@ -315,3 +315,7 @@ header {
     color: rgb(94, 94, 94);
     font-family: Helvetica, sans-serif;
 }
+
+#delete-this {
+    display: none;
+}

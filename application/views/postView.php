@@ -6,6 +6,7 @@
     <div class="header-logo">Camagru</div>
     <div class="header-tomain">
         <button class="header-button" id="to-main">To Main</button>
+        <button class="header-button" id="delete-this">Delete This</button>
         <button class="header-button" id="logout">Log Out</button>
     </div>
 </header>
