@@ -16,4 +16,10 @@ class View {
         header('location: /'.$url);
 		exit;
     }
+
+    public static function notFound() {
+        $contentView = 'error404';
+        $css = 'error';
+        require 'application/views/template/errorTemplate.php';
+    }
 }

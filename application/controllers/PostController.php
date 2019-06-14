@@ -2,6 +2,7 @@
 
 namespace application\controllers;
 use application\core\Controller;
+use application\core\View;
 
 class PostController extends Controller {
 
@@ -14,7 +15,7 @@ class PostController extends Controller {
             $this->view->generate('postView', 'defaultTemplate', $data);
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -33,7 +34,7 @@ class PostController extends Controller {
             $this->model->like($data['id']);
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'MidnightDrive';
+    src: url('../fonts/MidnightDrive.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MotionPicture';
+    src: url('../fonts/MotionPicture.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    background: rgb(203, 255, 219)
+}
+
+.ooops {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'MotionPicture', Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 500%;
+    color: #5CCCCC;
+}
+
+.e404{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'MidnightDrive', Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 1400%;
+    color: #5CCCCC;
+}

@@ -3,6 +3,7 @@
 namespace application\controllers;
 use application\core\Controller;
 use application\config\DB;
+use application\core\View;
 
 class ShotController extends Controller {
 
@@ -14,7 +15,7 @@ class ShotController extends Controller {
             $this->view->generate('shotView', 'defaultTemplate', $data);
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -45,7 +46,7 @@ class ShotController extends Controller {
 
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -56,7 +57,7 @@ class ShotController extends Controller {
             $this->model->insertPost($_SESSION['user'], $fileName);
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 

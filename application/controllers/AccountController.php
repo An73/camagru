@@ -3,6 +3,7 @@
 namespace application\controllers;
 use application\core\Controller;
 use application\config\DB;
+use application\core\View;
 
 
 class AccountController extends Controller {
@@ -59,7 +60,7 @@ class AccountController extends Controller {
             exit;
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -71,7 +72,7 @@ class AccountController extends Controller {
             $this->view->generate('editProfileView', 'defaultTemplate', $data);
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -88,11 +89,11 @@ class AccountController extends Controller {
                 }
             }
             else {
-                echo "NO 404";
+                View::notFound();
             }
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -108,11 +109,11 @@ class AccountController extends Controller {
                 }
             }
             else {
-                echo "NO 404";
+                View::notFound();
             }
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -128,11 +129,11 @@ class AccountController extends Controller {
                 }
             }
             else {
-                echo "NO 404";
+                View::notFound();
             }
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -147,7 +148,7 @@ class AccountController extends Controller {
             }
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -171,7 +172,7 @@ class AccountController extends Controller {
             exit($this->model->getInfoNotification());
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 
@@ -180,7 +181,7 @@ class AccountController extends Controller {
             exit($this->model->editNotification());
         }
         else {
-            echo "NO 404";
+            View::notFound();
         }
     }
 

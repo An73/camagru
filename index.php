@@ -2,6 +2,7 @@
 
 use application\core\Router;
 use application\core\Request;
+use application\core\View;
 use application\controllers;
 
 require_once('application/config/setup.php');
@@ -23,4 +24,4 @@ if ($request->checkParams()) {
     $controller->$action();
 }
 else
-    echo "NO 404";
+    View::notFound();
