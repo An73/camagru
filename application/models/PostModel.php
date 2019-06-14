@@ -73,7 +73,9 @@ class PostModel extends Model {
 
     public function deletePost($id) {
         if ($this->checkDelete($id)) {
-            DB::run('')
+            $file = DB::run('SELECT Post FROM posts WHERE ID=?', [$id])->fetch()['Post'];
+            unlink('public/resource/posts/'.$file);
+            DB::run('DELETE FROM posts WHERE ID=?', [$id]);
         }
     }
 
