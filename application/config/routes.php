@@ -99,5 +99,15 @@ return [
     'post/newcomment' => [
         'controller' => 'post',
         'action' => 'newcomment'
+    ],
+
+    'account/notinfo' => [
+        'controller' => 'account',
+        'action' => 'notinfo'
+    ],
+
+    'account/editnot' => [
+        'controller' => 'account',
+        'action' => 'editnot'
     ]
 ];

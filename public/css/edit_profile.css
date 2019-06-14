@@ -168,6 +168,11 @@ body {
     flex-direction: column;
 }
 
+#edit-notification-display {
+    display: none;
+    flex-direction: column;
+}
+
 .title-display {
     margin-top: 0;
     height: 40px;
@@ -291,4 +296,12 @@ body {
 form {
     display: flex;
     flex-direction: column;
+}
+
+.notification-info {
+    margin-right: auto;
+    margin-left: auto;
+    font-family: Helvetica, sans-serif;
+    font-size: 150%;
+    color: rgb(80, 80, 80);
 }

@@ -137,6 +137,25 @@ class AccountModel extends Model {
         return True;
     }
 
+    public function getInfoNotification() {
+        $ret = DB::run("SELECT Notification FROM users WHERE Username=?", [$_SESSION['user']])->fetch();
+        if ($ret['Notification']) {
+            return "ON";
+        }
+        return "OFF";
+    }
+
+    public function editNotification() {
+        $ret = DB::run("SELECT Notification FROM users WHERE Username=?", [$_SESSION['user']])->fetch();
+        if ($ret['Notification']) {
+            DB::run("UPDATE users SET Notification=? WHERE Username=?", [0, $_SESSION['user']]);
+        }
+        else {
+            DB::run("UPDATE users SET Notification=? WHERE Username=?", [1, $_SESSION['user']]);
+        }
+        return $this->getInfoNotification();
+    }
+
     private function resendPasswdMail($email, $passwd) {
         $encoding = "utf-8";
         $subject_preferences = array(

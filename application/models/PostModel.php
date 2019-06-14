@@ -51,8 +51,40 @@ class PostModel extends Model {
     }
 
     public function newComment($id, $comment) {
-        $userID = DB::run('SELECT ID FROM users WHERE Username=?', [$_SESSION['user']])->fetch()['ID'];
+        $user = DB::run('SELECT ID, Email, Notification FROM users WHERE Username=?', [$_SESSION['user']])->fetch();
+        $userID = $user['ID'];
         $stmt = DB::prepare('INSERT INTO comments (PostID, UserID, Comment) VALUE (?, ?, ?)');
         $stmt->execute([$id, $userID, $comment]);
+        if ($user['Notification']) {
+            $this->sendEmailComment($user['Email'], $comment);
+        }
+    }
+
+    private function sendEmailComment($email, $comment) {
+        $encoding = "utf-8";
+        $subject_preferences = array(
+		    "input-charset" => $encoding,
+		    "output-charset" => $encoding,
+		    "line-length" => 76,
+		    "line-break-chars" => "\r\n"
+        );
+        $subject = 'Your post is commented';
+	    $header = "Content-type: text/html; charset=".$encoding." \r\n";
+	    $header .= "From: camagru <administration@camagru.com> \r\n";
+	    $header .= "MIME-Version: 1.0 \r\n";
+	    $header .= "Content-Transfer-Encoding: 8bit \r\n";
+	    $header .= "Date: ".date("r (T)")." \r\n";
+        $header .= iconv_mime_encode("Subject", $subject, $subject_preferences);
+
+        $message = '
+            <html>
+                <head>
+                    <title>Your post is commented</title>
+                </head>
+                <body>
+                    <p>Comment: "' . $comment . '"</p>
+                </body>
+            </html>';
+        return mail($email, $subject, $message, $header);
     }
 }

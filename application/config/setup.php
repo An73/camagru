@@ -12,7 +12,8 @@
                     Passwd VARCHAR(255) NOT NULL,
                     Avatar VARCHAR(255) NOT NULL,
                     Activation VARCHAR(255) NOT NULL,
-                    Status BOOLEAN DEFAULT 0)");
+                    Status BOOLEAN DEFAULT 0,
+                    Notification BOOLEAN DEFAULT 1)");
     
     DB::query("CREATE TABLE IF NOT EXISTS posts
                     (ID INT(10) AUTO_INCREMENT PRIMARY KEY,

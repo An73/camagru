@@ -126,7 +126,7 @@ submitComment.onclick = function() {
     json = JSON.stringify(json);
     ajaxTemplate('POST', 'post/newcomment', json, countResponse);
     newComment.value = '';
-    checkComments();
+    location = "/post?idpost=" + post.getAttribute('data-id');
 }
 
 checkSession();

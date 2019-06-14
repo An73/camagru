@@ -164,7 +164,24 @@ class AccountController extends Controller {
             }
         }
         $this->view->redirect('account/edit');
+    }
 
+    public function notinfoAction() {
+        if (isset($_SESSION['user'])) {
+            exit($this->model->getInfoNotification());
+        }
+        else {
+            echo "NO 404";
+        }
+    }
+
+    public function editnotAction() {
+        if (isset($_SESSION['user'])) {
+            exit($this->model->editNotification());
+        }
+        else {
+            echo "NO 404";
+        }
     }
 
     private function getPublicData() {

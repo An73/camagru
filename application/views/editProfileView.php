@@ -16,6 +16,7 @@
                     <button id="btn-edit-passwd" class="button-menu">Edit Password</button>
                     <button id="btn-edit-email" class="button-menu">Edit Email</button>
                     <button id="btn-edit-avatar" class="button-menu">Edit Avatar</button>
+                    <button id="btn-edit-notification" class="button-menu">Edit Notification</button>
                 </div>
             </div>
 
@@ -62,6 +63,17 @@
                     <button id="button-back-avatar" class="button-back">Back</button>
                 </div>
             </div>
+
+            <div id="edit-notification-display">
+                <div class="title-display">Edit Notification</div>
+                <!-- <div id="error-modal-email" class="error-modal"></div> -->
+                <div class="content-edit">
+                    <div id="notification-info" class="notification-info">Notification: ON</div>
+                    <button id="button-edit-notification" class="button-back">on/off</button>
+                    <button id="button-back-notification" class="button-back">Back</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

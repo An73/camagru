@@ -18,6 +18,7 @@ let btnEditName = document.getElementById('btn-edit-name');
 let btnEditPasswd = document.getElementById('btn-edit-passwd');
 let btnEditEmail = document.getElementById('btn-edit-email');
 let btnEditAvatar = document.getElementById('btn-edit-avatar');
+let btnEditNotification = document.getElementById('btn-edit-notification');
 
 let editNameDisplay = document.getElementById('edit-name-display');
 let btnSubmitEditName = document.getElementById('submit-edit-username');
@@ -34,6 +35,11 @@ let btnSubmitEditEmail = document.getElementById('submit-edit-email');
 let editAvatarDisplay = document.getElementById('edit-avatar-display');
 let btnSubmitEditAvatar = document.getElementById('submit-edit-avatar');
 let btnBackAvatar = document.getElementById('button-back-avatar');
+
+let editNotificationDisplay = document.getElementById('edit-notification-display');
+let btnSendEditNotification = document.getElementById('button-edit-notification');
+let btnBackNotification = document.getElementById('button-back-notification');
+let notificationInfo = document.getElementById('notification-info');
 
 let editNameResponse = function(data) {
     let errorModal = document.getElementById('error-modal-name');
@@ -182,6 +188,33 @@ btnEditAvatar.onclick = function() {
 btnBackAvatar.onclick = function() {
     this.blur();
     editAvatarDisplay.style.display = 'none';
+    mainDisplay.style.display = 'flex';
+}
+
+btnEditNotification.onclick = function() {
+    this.blur();
+    mainDisplay.style.display = 'none';
+    editNotificationDisplay.style.display = 'flex';
+
+    let notificationResponse = function(data) {
+        notificationInfo.innerHTML = 'Notification: ' + data;
+    }
+    ajaxTemplate('POST', '/account/notinfo', null, notificationResponse);
+}
+
+
+btnSendEditNotification.onclick = function() {
+    this.blur();
+
+    let notificationResponse = function(data) {
+        notificationInfo.innerHTML = 'Notification: ' + data;
+    }
+    ajaxTemplate('POST', '/account/editnot', null, notificationResponse);
+}
+
+btnBackNotification.onclick = function() {
+    this.blur();
+    editNotificationDisplay.style.display = 'none';
     mainDisplay.style.display = 'flex';
 }
 
