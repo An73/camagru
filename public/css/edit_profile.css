@@ -87,7 +87,6 @@ body {
     margin-left: auto;
     border: 4px solid rgb(44, 209, 105);
     border-radius: 50%;
-    /* content: url("/public/resource/avatars/default.jpg");  */
 }
 
 .user-name {
@@ -111,7 +110,6 @@ body {
     margin-right: auto;
     margin-left: auto;
     width: 380px;
-    /* height: 50px; */
     font-family: 'MotionPicture', Helvetica, sans-serif;
     font-size: 170%;
     color: rgb(185, 255, 211);
@@ -233,7 +231,6 @@ body {
     margin-right: auto;
     margin-left: auto;
     width: 380px;
-    /* height: 50px; */
     font-family: 'MotionPicture', Helvetica, sans-serif;
     font-size: 170%;
     color: rgb(185, 255, 211);

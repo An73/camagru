@@ -20,6 +20,7 @@ class View {
     public static function notFound() {
         $contentView = 'error404';
         $css = 'error';
+        $title = 'Error 404';
         require 'application/views/template/errorTemplate.php';
     }
 }

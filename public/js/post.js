@@ -106,6 +106,7 @@ likeIcon.onclick = function() {
 logoutBtn.onclick = function() {
     this.blur();
     ajaxTemplate('POST', '/account/logout', null, checkSession);
+    location = "/post?idpost=" + post.getAttribute('data-id');
 }
 
 toMainBtn.onclick = function() {

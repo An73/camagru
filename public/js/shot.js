@@ -37,14 +37,12 @@ logoutBtn.onclick = function() {
 }
 
 if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({ video: true, audion: false })
       .then(function (stream) {
         video.srcObject = stream;
-
-
       })
       .catch(function (err0r) {
-        console.log("Something went wrong!");
+        console.log(err0r.message);
       });
 }
 
